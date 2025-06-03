@@ -168,6 +168,61 @@
       background: #fff;
       bottom: 60px; right: -100px;
     }
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .popup-content {
+      background: rgba(30, 30, 40, 0.98);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      border: 1px solid #fff2;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    }
+    .popup-content h2 {
+      color: #fff;
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .popup-content p {
+      color: #d1d1d1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .popup-btn {
+      padding: 12px 30px;
+      background: linear-gradient(90deg, #fff 60%, #e0e0e0 100%);
+      color: #111;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .popup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
     @media (max-width: 900px) {
       .features {
         flex-direction: column;
@@ -190,6 +245,12 @@
         max-width: 95vw;
         padding: 24px 12px;
       }
+      .popup-content {
+        padding: 30px 20px;
+      }
+      .popup-content h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -209,7 +270,7 @@
       From keeping chats clean to automating daily tasks, Civix empowers your community to thrive.
       Experience effortless management and a welcoming atmosphere for everyone.
     </p>
-    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1377353514933813359&permissions=8&integration_type=0&scope=bot" target="_blank">Invite Civix</a>
+    <a class="btn" id="inviteBtn" href="#">Invite Civix</a>
     <section class="features">
       <div class="feature-card">
         <h2>Community Protection</h2>
@@ -225,5 +286,40 @@
       </div>
     </section>
   </main>
+  
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <h2>Coming Soon!</h2>
+      <p>Civix is currently under development and will be available soon. We're working hard to bring you the best Discord bot experience. Thank you for your interest and support!</p>
+      <button class="popup-btn" id="popupCloseBtn">Got it!</button>
+    </div>
+  </div>
+  
+  <script>
+    const inviteBtn = document.getElementById('inviteBtn');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupCloseBtn = document.getElementById('popupCloseBtn');
+    
+    inviteBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      popupOverlay.classList.add('active');
+    });
+    
+    popupOverlay.addEventListener('click', function(e) {
+      if (e.target === popupOverlay) {
+        popupOverlay.classList.remove('active');
+      }
+    });
+    
+    popupCloseBtn.addEventListener('click', function() {
+      popupOverlay.classList.remove('active');
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+        popupOverlay.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
