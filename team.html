@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Civix Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #181a20;
+      color: #fff;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 60% 20%, #23272f 0%, #181a20 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .orb1 {
+      width: 400px; height: 400px;
+      background: #fff;
+      top: -120px; left: -120px;
+    }
+    .orb2 {
+      width: 300px; height: 300px;
+      background: #fff;
+      bottom: 60px; right: -100px;
+    }
+    .orb3 {
+      width: 220px; height: 220px;
+      background: #fff;
+      top: 60%; left: -80px;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .team-card {
+      background: rgba(30, 30, 40, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 2px 24px 0 rgba(0,0,0,0.13);
+      padding: 36px 28px 28px 28px;
+      min-width: 220px;
+      max-width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1.5px solid #fff2;
+      transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .team-card:hover {
+      border: 1.5px solid #fff;
+      box-shadow: 0 4px 32px 0 rgba(255,255,255,0.13);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .team-pfp {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 18px;
+      border: 3px solid #fff;
+      box-shadow: 0 0 24px #fff2;
+      background: #23272f;
+    }
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 8px #fff2;
+    }
+    .team-role {
+      font-size: 1.05rem;
+      color: #d1d1d1;
+      margin-bottom: 0;
+      letter-spacing: 0.2px;
+    }
+    @media (max-width: 700px) {
+      .team-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 32px 4px;
+      }
+      .team-card {
+        min-width: 180px;
+        max-width: 95vw;
+        padding: 24px 12px 18px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <nav style="display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:24px 40px 0 40px;">
+    <a href="index.html" style="
+      background: #23272f;
+      color: #fff;
+      border: 1.5px solid #fff;
+      font-size: 1rem;
+      padding: 10px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      margin-left: 0;
+      margin-right: 0;
+    ">Home</a>
+  </nav>
+  <h1 style="text-align:center; margin-top:40px; font-size:3.5rem; letter-spacing:1.5px; font-weight:900;">
+    Meet the <span style="color:#fff; text-shadow:0 0 24px #fff, 0 0 48px #fff2;">Civix</span> Developers
+  </h1>
+  <p style="text-align:center; max-width:700px; margin:24px auto 0 auto; font-size:1.35rem; color:#e0e0e0; line-height:1.6;">
+    Meet the team behind your favourite bot
+    <span style="color:#fff; text-shadow:0 0 16px #fff, 0 0 32px #fff2; font-weight:900;">Civix</span>
+  </p>
+  <div class="team-container">
+  </div>
+  <h2 style="text-align:center; margin-top:56px; font-size:1.7rem; letter-spacing:1px;">Developers</h2>
+  <div class="team-container">
+    <div class="team-card">
+      <img class="team-pfp" src="https://cdn.discordapp.com/avatars/1084370357185675264/9e6d89dc004c1161243829752e912d37.png?size=512" alt="Slayer">
+      <div class="team-name">Slayer</div>
+      <div class="team-role">Lead bot developer & web dev</div>
+    </div>
+    <div class="team-card">
+      <img class="team-pfp" src="https://cdn.discordapp.com/avatars/1369400346753106070/04d5b85aedc82a61e37bc681124742fe.png?size=512" alt="Potato">
+      <div class="team-name">Potato</div>
+      <div class="team-role">Lead bot developer</div>
+    </div>
+    <div class="team-card">
+      <img class="team-pfp" src="https://cdn.discordapp.com/avatars/995664658038005772/a_372eca225e4f45d38d0e217a727a3aab.gif?size=512" alt="spooderman">
+      <div class="team-name">spooderman</div>
+      <div class="team-role">Junior bot developer</div>
+    </div>
+  </div>
+</body>
+</html>
